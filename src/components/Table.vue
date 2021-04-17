@@ -124,15 +124,11 @@ export default {
           credit: 3200,
         },
       ],
-      initialValue:'',
-      updatedValue:'',
     }
   },
   emits:['storeValues'],
   methods: {
       storeInput(values){
-        this.initialValue = values.initialValue
-        this.updatedValue = values.value
         this.$emit('storeValues',values)
 
       },
