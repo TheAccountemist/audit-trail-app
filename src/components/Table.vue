@@ -1,10 +1,17 @@
-<template>
+<template>  
+<div>
+  <q-toggle v-model="loading" label="Loading state" class="q-mb-md" />
   <q-table
       title="Transactions"
       :data="data"
       :columns="columns"
       row-key="rowNumber"
+      :loading="loading"
   >
+      <template v-slot:loading>
+        <q-inner-loading showing color="primary" />
+      </template>
+
        <template v-slot:body-cell="props">
           <q-td           
           :props="props"
@@ -43,6 +50,7 @@
           </q-td>
       </template>      
   </q-table>
+</div>
 </template>
 
 <script>
@@ -124,6 +132,7 @@ export default {
           credit: 3200,
         },
       ],
+      loading:false,
     }
   },
   emits:['storeValues'],
